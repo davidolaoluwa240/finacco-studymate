@@ -1,0 +1,31 @@
+{% extends 'account/account_base.html' %} {% block auth_content %}
+<form method="POST">
+  {% csrf_token %} {% for field in form %}
+  <div class="form__group flex flex-col mb-6">
+    <label for="email" class="mb-2 text-base">{{field.label}}</label>
+    {{field}}
+  </div>
+  {% endfor %}
+
+  <div class="form__group mt-6">
+    <p class="text-[#4B5563] text-xs mb-6">
+      By creating an account, you agree with FinaccoHub's Terms of Service and
+      Privacy Policy
+    </p>
+    <button
+      class="bg-primary font-semibold text-lg w-full text-[#ffffff] rounded-lg py-2"
+      type="submit"
+    >
+      Create Account
+    </button>
+  </div>
+
+  <footer class="flex justify-center items-center flex-col mt-16">
+    <p>
+      Do you have an account?
+      <a class="text-primary font-semibold" href="{% url 'login' %}">Login!</a>
+    </p>
+    <!-- <p>Do you forget your password? <a href="">Forgot Password!</a></p> -->
+  </footer>
+</form>
+{% endblock auth_content %}

@@ -1,0 +1,18 @@
+{% extends 'main.html' %} {% block content %}
+<section class="grid grid-cols-2">
+  <div class="h-screen bg-primary"></div>
+  <div class="p-16 h-screen overflow-y-auto">
+    <h1 class="font-bold text-3xl">Welcome to FinaccoHub StudyMate</h1>
+    <p class="mt-2 text-[#4B5563]">
+      StudyMate is a tool that helps you study better through your professional
+      training journey. We are happy to have you join us.
+    </p>
+
+    <!-- Messages -->
+    <div class="mt-11 mb-6">{% include 'shared/flash-message.html' %}</div>
+
+    <!-- Authentication Content -->
+    {% block auth_content %} {% endblock auth_content %}
+  </div>
+</section>
+{% endblock content %}

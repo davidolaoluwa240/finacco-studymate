@@ -1,0 +1,56 @@
+{% extends 'dashboard/session/session_form_base.html' %}
+
+<!-- Main Content -->
+{% block session_form_content %}
+<div class="mt-9">
+  <h1 class="text-3xl font-semibold mb-4">Welcome to your New Session.</h1>
+  <p class="text-[#1c1c1c]/40">Create session details to Continue</p>
+
+  {% include 'shared/flash-message.html' %}
+
+  <form class="mt-7" method="POST">
+    {% csrf_token %} {% for field in form %}
+    <div class="form__group flex flex-col mb-6">
+      <label for="email" class="mb-2 text-base">{{field.label}}</label>
+      {{field}}
+    </div>
+    {% endfor %}
+
+    <div class="form__group flex flex-col mb-6">
+      <label for="exam" class="mb-2 text-base">Exam</label>
+      <input
+        class="form-input rounded-md border-[rgba(28, 28, 28, 0.2)] placeholder:text-[rgba(28, 28, 28, 0.2)] w-1/2"
+        required
+        type="text"
+        id="exam"
+        value="{%if session %}{{session.exam.name}}{%  endif %}"
+        name="exam"
+        list="exam-list"
+      />
+      <datalist id="exam-list">
+        {% for exam in exams %}
+        <option value="{{exam.name}}">{{exam.name}}</option>
+        {% endfor %}
+      </datalist>
+    </div>
+
+    <div class="form__group flex items-center gap-6">
+      <a
+        class="text-[#1c1c1c] bg-[#1c1c1c]/5 font-semibold text-lg rounded-lg py-2 w-[158.531px] text-center"
+        href="{{request.META.HTTP_REFERER}}"
+        role="button"
+        type="button"
+        >Cancel</a
+      >
+
+      <button
+        class="bg-black font-semibold text-lg text-[#ffffff] rounded-lg py-2 px-4 flex items-center gap-2"
+        type="submit"
+      >
+        {% if mode != 'Update' %} Get Started {% else %} Update {% endif %}
+        <span class="material-symbols-outlined"> arrow_right_alt </span>
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock session_form_content %}

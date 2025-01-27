@@ -1,0 +1,40 @@
+<aside class="bg-secondary h-full py-5">
+  <div class="flex items-center gap-2 text-sm text-white mb-14 px-5">
+    <img
+      class="w-7 h-7 rounded-full"
+      src="{{request.user.avatar.url}}"
+      alt="{{request.user.first_name}}"
+    />
+    <p>{{request.user.first_name}}</p>
+  </div>
+
+  <nav class="list-none flex flex-col gap-4 dashboard-navbar__nav px-4">
+    <li>
+      <a
+        class="flex items-center gap-1 py-2 pl-8 rounded-lg hover:bg-primary hover:font-semibold {% if '/' == request.path %} bg-primary font-semibold {%endif%}"
+        href="{% url 'dashboard-analytic' %}"
+      >
+        <span class="material-symbols-outlined"> analytics </span>
+        Analytics</a
+      >
+    </li>
+    <li>
+      <a
+        class="flex items-center gap-1 py-2 pl-8 rounded-lg hover:bg-primary hover:font-semibold {% if 'sessions' in request.path %} bg-primary font-semibold {%endif%}"
+        href="{% url 'dashboard-sessions' %}"
+      >
+        <span class="material-symbols-outlined"> import_contacts </span>
+        My Sessions</a
+      >
+    </li>
+    <li>
+      <a
+        class="flex items-center gap-1 py-2 pl-8 rounded-lg transition-all hover:bg-primary hover:font-semibold {% if 'settings' in request.path %} bg-primary font-semibold {%endif%}"
+        href="{% url 'dashboard-settings' %}"
+      >
+        <span class="material-symbols-outlined"> settings </span>
+        Settings</a
+      >
+    </li>
+  </nav>
+</aside>

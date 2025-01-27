@@ -1,0 +1,12 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+<!-- Main Content -->
+{% block dashboard_content %}
+<div>
+  {% include 'shared/session_form_navbar.html' %}
+
+  <!-- Main Content -->
+  {% block session_form_content %} {% endblock session_form_content %}
+</div>
+
+{% endblock dashboard_content %}

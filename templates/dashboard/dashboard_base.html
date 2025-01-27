@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+<!-- Main Content -->
+{% block content %}
+<div class="text-white">
+  {% include 'shared/navbar.shared.html' %}
+  <section class="grid grid-cols-[1fr_5fr] h-[calc(100vh-65px)]">
+    {% include 'shared/dashboard-navbar.shared.html' %}
+    <main class="p-16 text-black h-full overflow-y-auto">
+      {% block dashboard_content %} {% endblock dashboard_content %}
+    </main>
+  </section>
+</div>
+{% endblock content %}

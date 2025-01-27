@@ -1,0 +1,51 @@
+<div
+  class="bg-primary max-w-[400px] flex flex-col gap-16 rounded-lg p-9 text-white"
+>
+  <input
+    class="hidden"
+    id="timer-control"
+    type="text"
+    name="duration"
+    value=""
+  />
+  <div class="flex justify-between">
+    <p class="flex flex-col justify-center">
+      <small>{{session.exam.name}}</small>
+      <small>{{session.name}}</small>
+    </p>
+    <a href="{% url 'dashboard-sessions' %}" title="Back to sessions">
+      <span class="material-symbols-outlined"> cancel </span>
+    </a>
+  </div>
+
+  <div
+    class="flex justify-center items-center font-semibold text-5xl"
+    id="timer"
+  >
+    00:00:00
+  </div>
+
+  <div class="flex justify-center items-center">
+    <span
+      class="material-symbols-outlined cursor-pointer text-4xl"
+      title="Pause timer"
+      id="timer-pause"
+    >
+      pause
+    </span>
+    <span
+      class="material-symbols-outlined cursor-pointer text-4xl"
+      title="Play timer"
+      id="timer-play"
+    >
+      play_arrow
+    </span>
+    <span
+      class="material-symbols-outlined cursor-pointer text-4xl"
+      title="reset timer"
+      id="timer-reset"
+    >
+      stop_circle
+    </span>
+  </div>
+</div>

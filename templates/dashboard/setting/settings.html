@@ -1,0 +1,55 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+<!-- Main Content  -->
+{% block dashboard_content %}
+<div>
+  <h1 class="font-semibold text-3xl">My Profile Settings</h1>
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- Flash Message  -->
+    {% include 'shared/flash-message.html' %}
+
+    <div class="form__group flex items-center gap-6 my-6">
+      <img
+        class="w-[132px] h-[132px] rounded-full block object-center"
+        id="avatar-image"
+        src="{{request.user.avatar.url}}"
+        alt="{{request.user.first_name}}"
+      />
+      <button
+        type="button"
+        id="avatar-upload-button"
+        class="border-[#1C1C1C]/10 border font-semibold text-lg text-[#1C1C1C] rounded-lg p-2"
+      >
+        Update Profile Photo
+      </button>
+      <input
+        id="avatar-control"
+        name="avatar"
+        class="hidden"
+        type="file"
+        accept="image/*"
+      />
+    </div>
+
+    <div class="grid grid-cols-2 gap-3">
+      {% for field in form %}
+      <div class="form__group flex flex-col mb-6">
+        <label for="email" class="mb-2 text-base">{{field.label}}</label>
+        {{field}}
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="form__group flex justify-end">
+      <button
+        class="bg-primary font-semibold text-lg text-[#ffffff] rounded-lg p-3"
+        type="submit"
+      >
+        Update Profile
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock dashboard_content %}

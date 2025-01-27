@@ -1,0 +1,35 @@
+<nav class="border-b pb-6 text-[#1c1c1c]/10">
+  <ul class="flex gap-3 text-[#1c1c1c]/40 text-sm">
+    <div class="flex gap-3">
+      <li>{% if mode %}{{mode}}{% else %}Create{% endif %} New Session</li>
+      /
+      <li>
+        <a
+          class="{% if 'create-time' in request.path %}text-[#1c1c1c]{% endif %}"
+          href="{% if mode %}{% url 'update-session' session_id %}{% else %}{% url 'create-session' %}{% endif %}"
+          >{% if mode %}{{mode}}{% else %}Create{% endif %} Time</a
+        >
+      </li>
+    </div>
+    -
+    <div class="flex gap-3">
+      <li>
+        <a
+          class="{% if 'study-time' in request.path %}text-[#1c1c1c]{% endif %}"
+          href="{% if session_id %}{% url 'session-study-time' session_id %}{% endif %}"
+          >Study Time</a
+        >
+      </li>
+      -
+      <li>
+        <a
+          class="{% if 'upload-note' in request.path %}text-[#1c1c1c]{% endif %}"
+          >Upload Note Pictures</a
+        >
+      </li>
+    </div>
+  </ul>
+</nav>
+
+<!--  -->
+<!-- href="url 'update-note' session_id %}" -->

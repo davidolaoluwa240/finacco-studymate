@@ -1,0 +1,25 @@
+{% extends 'dashboard/session/session_form_base.html' %}
+
+<!-- Main Content -->
+{% block session_form_content %}
+<div class="mt-9">
+  <h1 class="text-3xl font-semibold mb-4">Time To Study!</h1>
+  <p class="text-[#1c1c1c]/40">
+    End the clock when you finish and move to the next step.
+  </p>
+
+  <form method="POST" class="mt-8 w-[380px]">
+    {% csrf_token %} {% include 'shared/timer.html' %}
+
+    <div class="form__group mt-6 flex justify-end">
+      <button
+        class="bg-black font-semibold text-lg text-[#ffffff] rounded-lg py-2 px-4 flex items-center gap-2"
+        type="submit"
+      >
+        Finished
+        <span> 🎉 </span>
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock session_form_content %}

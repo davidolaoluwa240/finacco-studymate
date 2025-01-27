@@ -1,0 +1,6 @@
+<!-- Messages -->
+<ul class="flex list-disc">
+  {% if messages %} {% for message in messages %}
+  <div class="text-{{message.tags}}">{{ message }}</div>
+  {% endfor %} {% endif %}
+</ul>
