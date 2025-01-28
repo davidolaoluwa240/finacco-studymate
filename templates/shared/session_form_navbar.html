@@ -1,7 +1,13 @@
-<nav class="border-b pb-6 text-[#1c1c1c]/10">
+<nav class="border-b pb-6 border-[#1c1c1c]/10">
   <ul class="flex gap-3 text-[#1c1c1c]/40 text-sm">
     <div class="flex gap-3">
-      <li>{% if mode %}{{mode}}{% else %}Create{% endif %} New Session</li>
+      <li>
+        <a
+          class="transition-all hover:text-[#1c1c1c]"
+          href="{% url 'dashboard-sessions' %}"
+          >Sessions</a
+        >
+      </li>
       /
       <li>
         <a
