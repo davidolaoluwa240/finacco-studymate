@@ -10,7 +10,7 @@ const timerResetBtn = document.getElementById("timer-reset");
 const studyTimeBtn = document.getElementById("study-time-btn");
 
 // Constants
-let elapsedSeconds = Number.parseInt(timerControl.dataset["timerInit"]) || 0;
+let elapsedSeconds = Number.parseInt(timerControl?.dataset["timerInit"]) || 0;
 let timerInterval;
 
 // Utils

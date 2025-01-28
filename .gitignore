@@ -20,6 +20,7 @@ staticfiles/
 
 # Media files
 media/
+static/images/uploads/
 
 # IDEs and editors
 .vscode/

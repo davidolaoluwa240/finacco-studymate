@@ -140,6 +140,16 @@ def sessionStudyTime(request, session_id):
     return render(request, "dashboard/session/study-time.html", context)
 
 '''
+    Handler for uploading session notes
+'''
+def sessionUploadNotes(request, session_id):
+    session = Session.objects.get(id=session_id)
+    session_notes = session.sessionnote_set.all()
+
+    context = {"title": "Sessions / Upload Notes", "session_id": session_id, "mode": "Update", "session":session, "session_notes": session_notes}
+    return render(request, "dashboard/session/upload-notes.html", context)
+
+'''
     Handler for the settings page
 '''
 @login_required(login_url="login")

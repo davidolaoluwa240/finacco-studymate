@@ -11,7 +11,7 @@
       /
       <li>
         <a
-          class="{% if 'create-time' in request.path %}text-[#1c1c1c]{% endif %}"
+          class="{% if 'create-time' in request.path or 'update-time' in request.path %}text-[#1c1c1c]{% endif %}"
           href="{% if mode %}{% url 'update-session' session_id %}{% else %}{% url 'create-session' %}{% endif %}"
           >{% if mode %}{{mode}}{% else %}Create{% endif %} Time</a
         >
@@ -29,13 +29,11 @@
       -
       <li>
         <a
-          class="{% if 'upload-note' in request.path %}text-[#1c1c1c]{% endif %}"
+          class="{% if 'upload-notes' in request.path %}text-[#1c1c1c]{% endif %}"
+          href="{% if session_id %}{% url 'session-upload-notes' session_id %}{% endif %}"
           >Upload Note Pictures</a
         >
       </li>
     </div>
   </ul>
 </nav>
-
-<!--  -->
-<!-- href="url 'update-note' session_id %}" -->

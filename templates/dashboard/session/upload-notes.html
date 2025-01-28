@@ -1,0 +1,14 @@
+{% extends 'dashboard/session/session_form_base.html' %}
+
+<!-- Main Content -->
+{% block session_form_content %}
+<div class="mt-9">
+  <h1 class="text-3xl font-semibold mb-4">You Did it!!</h1>
+  <p class="text-[#1c1c1c]/40">
+    You studied for {{session.padded_duration}}. upload your notes images to
+    convert them into digital text.
+  </p>
+
+  {% include 'shared/flash-message.html' %}
+</div>
+{% endblock %}
