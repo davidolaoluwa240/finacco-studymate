@@ -1,8 +1,8 @@
-{% extends 'dashboard/session/session_form_base.html' %}
+{% extends 'dashboard/session/session_form_base.html' %} {% load static %}
 
 <!-- Main Content -->
 {% block session_form_content %}
-<div class="mt-9">
+<div class="mt-9 w-5/6">
   <h1 class="text-3xl font-semibold mb-4">You Did it!!</h1>
   <p class="text-[#1c1c1c]/40">
     You studied for {{session.padded_duration}}. upload your notes images to
@@ -10,5 +10,96 @@
   </p>
 
   {% include 'shared/flash-message.html' %}
+
+  <form
+    class="mt-7"
+    id="upload-notes-form"
+    action="{% url 'session-upload-notes' session_id %}"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <p>
+      For best effect, take full, clear pictures of your note like this one.
+    </p>
+
+    <div class="mt-7 flex justify-between">
+      <img
+        class="block w-[199px] h-[224px]"
+        src="{% static 'images/upload-sample.svg' %}"
+        alt="upload sample"
+      />
+
+      <div class="flex flex-col gap-9">
+        <div class="flex items-center gap-9">
+          <img
+            class="upload-btn block cursor-pointer"
+            src="{% static 'images/upload-default.svg' %}"
+            alt="upload default"
+          />
+
+          <div class="flex flex-col gap-2">
+            <button
+              class="text-[#1c1c1c] bg-[#1c1c1c]/5 font-semibold text-lg rounded-lg py-2 w-[158.531px] text-center upload-btn"
+              type="button"
+            >
+              Upload Photos
+            </button>
+            <p class="text-xs text-black">
+              Upload up to 10 pages of your Document.
+            </p>
+            <input
+              class="hidden"
+              id="upload-note-control"
+              type="file"
+              multiple
+              accept="image/*"
+            />
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <p class="font-medium">
+            Your Images (<span
+              id="upload-length"
+              data-init-images-length="{{session_notes.count}}"
+              >0</span
+            >)
+          </p>
+          <div id="uploads" class="grid grid-cols-2 gap-3 max-w-[400px]">
+            {% for session_note in session_notes %}
+            <div
+              class="relative uploads__item"
+              data-id="{{session_note.id}}"
+              data-uploaded-before="true"
+            >
+              <button
+                class="bg-white flex justify-center rounded-full p-1 text-center items-center absolute top-1 right-2 uploads-remove-btn"
+                title="Remove image"
+                type="button"
+              >
+                <span class="material-symbols-outlined"> cancel </span>
+              </button>
+              <img
+                class="block rounded-md align-middle w-[200px] h-[200px]"
+                src="{{session_note.image.url}}"
+                alt="{{session_note.session.name}}"
+              />
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__group flex justify-end mt-7">
+      <button
+        class="bg-black font-semibold text-lg text-[#ffffff] rounded-lg py-2 px-4 flex items-center gap-2"
+        type="submit"
+      >
+        Transcribe Notes
+      </button>
+    </div>
+  </form>
 </div>
 {% endblock %}

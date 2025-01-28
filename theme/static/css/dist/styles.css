@@ -845,6 +845,22 @@ select {
   position: static;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.right-2 {
+  right: 0.5rem;
+}
+
+.top-1 {
+  top: 0.25rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -919,8 +935,16 @@ select {
   height: 1.75rem;
 }
 
+.h-\[100px\] {
+  height: 100px;
+}
+
 .h-\[132px\] {
   height: 132px;
+}
+
+.h-\[224px\] {
+  height: 224px;
 }
 
 .h-\[calc\(100vh-65px\)\] {
@@ -935,8 +959,16 @@ select {
   height: 100vh;
 }
 
+.h-\[200px\] {
+  height: 200px;
+}
+
 .w-1\/2 {
   width: 50%;
+}
+
+.w-5\/6 {
+  width: 83.333333%;
 }
 
 .w-7 {
@@ -951,12 +983,20 @@ select {
   width: 158.531px;
 }
 
+.w-\[199px\] {
+  width: 199px;
+}
+
 .w-\[380px\] {
   width: 380px;
 }
 
 .w-full {
   width: 100%;
+}
+
+.w-\[200px\] {
+  width: 200px;
 }
 
 .max-w-\[400px\] {
@@ -1027,6 +1067,10 @@ select {
   gap: 1.5rem;
 }
 
+.gap-9 {
+  gap: 2.25rem;
+}
+
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -1055,12 +1099,12 @@ select {
   border-color: rgb(28 28 28 / 0.1);
 }
 
-.border-white\/10 {
-  border-color: rgb(255 255 255 / 0.1);
-}
-
 .border-\[\#1c1c1c\]\/10 {
   border-color: rgb(28 28 28 / 0.1);
+}
+
+.border-white\/10 {
+  border-color: rgb(255 255 255 / 0.1);
 }
 
 .bg-\[\#1c1c1c\]\/5 {
@@ -1082,9 +1126,18 @@ select {
   background-color: rgb(28 28 28 / var(--tw-bg-opacity, 1));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
 .object-center {
   -o-object-position: center;
      object-position: center;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .p-16 {
@@ -1140,6 +1193,10 @@ select {
   text-align: center;
 }
 
+.align-middle {
+  vertical-align: middle;
+}
+
 .font-serif {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
@@ -1188,6 +1245,10 @@ select {
   font-weight: 700;
 }
 
+.font-medium {
+  font-weight: 500;
+}
+
 .font-semibold {
   font-weight: 600;
 }
@@ -1208,10 +1269,6 @@ select {
 .text-\[\#1c1c1c\] {
   --tw-text-opacity: 1;
   color: rgb(28 28 28 / var(--tw-text-opacity, 1));
-}
-
-.text-\[\#1c1c1c\]\/10 {
-  color: rgb(28 28 28 / 0.1);
 }
 
 .text-\[\#1c1c1c\]\/40 {
@@ -1245,6 +1302,10 @@ select {
 
 .text-white\/80 {
   color: rgb(255 255 255 / 0.8);
+}
+
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .transition-all {
