@@ -1,0 +1,33 @@
+/* Imports  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    font-family: "Inter", sans-serif;
+  }
+}
+
+.w-1\/2 {
+  width: 50%;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}
+
+.errorlist li {
+  display: flex;
+}
+
+.errorlist li ul {
+  margin-left: 0.6rem;
+}

@@ -128,7 +128,6 @@ def updateSession(request, session_id):
 def sessionStudyTime(request, session_id):
     session = Session.objects.get(id=session_id)
 
-
     if request.method == "POST":
         duration_value = request.POST.get('duration')
         hours, minutes, seconds = map(int, duration_value.split(':'))

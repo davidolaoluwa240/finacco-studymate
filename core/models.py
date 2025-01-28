@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from datetime import timedelta
 
 '''
     User Custom Model
@@ -53,6 +54,13 @@ class Session(models.Model):
 
     def __str__(self):
         return self.name
+
+    def padded_duration(self, target_length=8):
+        if self.duration:
+            total_seconds = int(self.duration.total_seconds())
+            duration_str = str(timedelta(seconds=total_seconds))
+            return duration_str.zfill(target_length)
+        else: return "00:00:00"
 
 '''
     Session Note Model

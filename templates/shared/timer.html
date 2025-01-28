@@ -6,7 +6,8 @@
     id="timer-control"
     type="text"
     name="duration"
-    value=""
+    data-timer-init="{% if session.duration %}{{session.duration.total_seconds}}{% endif %}"
+    value="{{session.padded_duration}}"
   />
   <div class="flex justify-between">
     <p class="flex flex-col justify-center">
@@ -22,7 +23,7 @@
     class="flex justify-center items-center font-semibold text-5xl"
     id="timer"
   >
-    00:00:00
+    {{ session.padded_duration }}
   </div>
 
   <div class="flex justify-center items-center">
